@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Cabot ELogs</string>
     <string name="edit_message">Choose your device</string>
-    <string name="button_send">Send</string>
+    <string name="button_send">OK</string>
 </resources>
