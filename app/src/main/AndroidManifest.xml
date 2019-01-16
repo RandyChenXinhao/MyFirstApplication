@@ -3,7 +3,6 @@
     package="com.example.myfirstapplication">
 
 
-    <uses-sdk android:minSdkVersion="8" />
 
     <uses-permission android:name="android.permission.NFC" />
 
