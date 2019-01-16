@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private PendingIntent pendingIntent;
 
     private TextView tvUid;
-
-
+// add dvUid as device name id
+	private TextView dvUid;
 
     @Override
 
@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         tvUid = (TextView) findViewById(R.id.tv_uid);
 
+// add dvDid
+		dvUid = (TextView) findViewById(R.id.dv_uid);
+		
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
         pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this,
@@ -97,6 +100,9 @@ public class MainActivity extends AppCompatActivity {
 
         String uid = "";
 
+//		Add did as device name
+		String did = "";
+
         Tag tagFromIntent = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
 
 //		str+="Tech List:"+tagFromIntent.getTechList()[0]+"\n";//打印卡的技术列表
@@ -107,8 +113,26 @@ public class MainActivity extends AppCompatActivity {
 
         tvUid.setText(uid);
 
+//		Choose device by UID 
+		
+		switch(uid) {
+			case "0x045b69e2c85a80" :
+				did = "Burner01";
+				dvUid.setText(did);
+				break;
+			case "0x04cb62e2c85a80" :
+				did = "Pipe01";
+				dvUid.setText(did);
+				break;
+			case "0x045230e2c85a81" :
+				did = "Valve01";
+				dvUid.setText(did);
+				break;
+			default :
+				did = "Not a Cabot Device, please check";
+				dvUid.setText(did);
+		}
     }
-
 
 
     //字符序列转换为16进制字符串
